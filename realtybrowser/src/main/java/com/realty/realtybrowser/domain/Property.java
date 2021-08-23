@@ -11,26 +11,28 @@ public class Property implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false, updatable = false)
     private Long id;
-    private String roadAddress;
+    private String streetAddress;
     private String city;
     private String state;
     private int price;
     private int bedrooms;
     private float bathrooms;
+    private String thumbnailLink;
     private String propertyCode;
 
     public Property()
     {
     }
 
-    public Property(String roadAddress, String city, String state, int price, int bedrooms, float bathrooms, String propertyCode)
+    public Property(String streetAddress, String city, String state, int price, int bedrooms, float bathrooms, String thumbnailLink, String propertyCode)
     {
-        this.roadAddress = roadAddress;
+        this.streetAddress = streetAddress;
         this.city = city;
         this.state = state;
         this.price = price;
         this.bedrooms = bedrooms;
         this.bathrooms = bathrooms;
+        this.thumbnailLink = thumbnailLink;
         this.propertyCode = propertyCode;
     }
 
@@ -44,14 +46,14 @@ public class Property implements Serializable {
         this.id = id;
     }
 
-    public String getRoadAddress()
+    public String getStreetAddress()
     {
-        return roadAddress;
+        return streetAddress;
     }
 
-    public void setRoadAddress(String roadAddress)
+    public void setStreetAddress(String streetAddress)
     {
-        this.roadAddress = roadAddress;
+        this.streetAddress = streetAddress;
     }
 
     public String getCity()
@@ -104,6 +106,10 @@ public class Property implements Serializable {
         this.bathrooms = bathrooms;
     }
 
+    public String getThumbnailLink() { return thumbnailLink; }
+
+    public void setThumbnailLink(String thumbnailLink) { this.thumbnailLink = thumbnailLink; }
+
     public void setPropertyCode(String propertyCode)
     {
         this.propertyCode = propertyCode;
@@ -119,12 +125,13 @@ public class Property implements Serializable {
     {
         return  "Property{" +
                 "id=" + id +
-                ", roadAddress=" + roadAddress + '\'' +
+                ", streetAddress=" + streetAddress + '\'' +
                 ", city=" + city + '\'' +
                 ", state=" + state + '\'' +
                 ", price=" + price + '\'' +
                 ", bedrooms=" + bedrooms + '\'' +
                 ", bathrooms=" + bathrooms + '\'' +
+                ", thumbnailLink=" + thumbnailLink + '\'' +
                 ", propertyCode=" + propertyCode + '\'' +
                 "}";
     }
