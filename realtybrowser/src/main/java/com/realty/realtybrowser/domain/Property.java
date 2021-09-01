@@ -14,25 +14,39 @@ public class Property implements Serializable {
     private String streetAddress;
     private String city;
     private String state;
+    private String listingType;
     private int price;
     private int bedrooms;
     private float bathrooms;
     private String thumbnailLink;
+    private float squareFoot;
+    private float acreage;
+    private String propertyType;
+    private int yearBuilt;
+    private int garageSpace;
     private String propertyCode;
 
     public Property()
     {
     }
 
-    public Property(String streetAddress, String city, String state, int price, int bedrooms, float bathrooms, String thumbnailLink, String propertyCode)
+    public Property(String streetAddress, String city, String state, String listingType, int price, int bedrooms, float bathrooms,
+                    String thumbnailLink, float squareFoot, float acreage, String propertyType, int yearBuilt,
+                    int garageSpace, String propertyCode)
     {
         this.streetAddress = streetAddress;
         this.city = city;
         this.state = state;
+        this.listingType = listingType;
         this.price = price;
         this.bedrooms = bedrooms;
         this.bathrooms = bathrooms;
         this.thumbnailLink = thumbnailLink;
+        this.squareFoot = squareFoot;
+        this.acreage = acreage;
+        this.propertyType = propertyType;
+        this.yearBuilt = yearBuilt;
+        this.garageSpace = garageSpace;
         this.propertyCode = propertyCode;
     }
 
@@ -120,6 +134,58 @@ public class Property implements Serializable {
         return propertyCode;
     }
 
+
+
+    public float getSquareFoot() {
+        return squareFoot;
+    }
+
+    public void setSquareFoot(float squareFoot) {
+        this.squareFoot = squareFoot;
+    }
+
+
+    public float getAcreage() {
+        return acreage;
+    }
+
+    public void setAcreage(float acreage) {
+        this.acreage = acreage;
+    }
+
+    public String getPropertyType() {
+        return propertyType;
+    }
+
+    public void setPropertyType(String propertyType) {
+        this.propertyType = propertyType;
+    }
+
+    public int getYearBuilt() {
+        return yearBuilt;
+    }
+
+    public void setYearBuilt(int yearBuilt) {
+        this.yearBuilt = yearBuilt;
+    }
+
+    public int getGarageSpace() {
+        return garageSpace;
+    }
+
+    public void setGarageSpace(int garageSpace) {
+        this.garageSpace = garageSpace;
+    }
+
+    public String getListingType() {
+        return listingType;
+    }
+
+    public void setListingType(String listingType) {
+        this.listingType = listingType;
+    }
+
+
     @Override
     public String toString()
     {
@@ -128,10 +194,16 @@ public class Property implements Serializable {
                 ", streetAddress=" + streetAddress + '\'' +
                 ", city=" + city + '\'' +
                 ", state=" + state + '\'' +
+                ", listingType=" + listingType + '\'' +
                 ", price=" + price + '\'' +
                 ", bedrooms=" + bedrooms + '\'' +
                 ", bathrooms=" + bathrooms + '\'' +
                 ", thumbnailLink=" + thumbnailLink + '\'' +
+                ", squareFoot=" + squareFoot + '\'' +
+                ", acreage=" + acreage + '\'' +
+                ", propertyType=" + propertyType + '\'' +
+                ", yearBuilt=" + yearBuilt + '\'' +
+                ", garageSpace=" + garageSpace + '\'' +
                 ", propertyCode=" + propertyCode + '\'' +
                 "}";
     }

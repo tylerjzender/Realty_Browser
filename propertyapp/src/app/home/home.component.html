@@ -1,45 +1,28 @@
+<div class="center text-center col-10">
+    <h2>Welcome to the property browser!</h2>
+    <h4>Browse some of the listed properties below, search for properties, or add your own.</h4>
+</div>
 <div class="container">
-    <div class="row">
-        <div *ngFor="let property of properties" class="col-md-6 col-xl-5">
-            <!-- <img  src={{property?.thumbnailLink}} width="200" height="100"> -->
-            <div class="card m-b-30">
-                <div class="card-body row">
-                    <div class="col-6">
-                        <img class="card-img-top" src={{property?.thumbnailLink}} alt="">
-                        <!--<a href=""><img src={{property?.imageLink}}></a>  <alt="" class="img-fluid rounded-circle w-60"></a>-->
-                    </div> 
-                    <div class="col-6 card-title align-self-center mb-0">
-                        <h5>{{property?.streetAddress}}</h5>
-                        <p class="m-0">{{property?.city}}, {{property?.state}}</p>
-                    </div>
-                </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item"><i class="fa fa-envelope float-right"></i>Price : ${{property?.price | number: '2.'}}</li>
-                    <li class="list-group-item"><i class="fa fa-phone float-right"></i>Bedrooms : {{property?.bedrooms}}</li>
-                    <li class="list-group-item"><i class="fa fa-phone float-right"></i>Bathrooms : {{property?.bathrooms}}</li>
-                </ul>
-                <div class="card-body">
-                    <!-- <div class="float-right btn-group btn-group-sm">
-                        <a href="#" class="btn btn-primary tooltips" data-placement="top" data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil"></i> </a>
-                        <a href="#" class="btn btn-secondary tooltips" data-placement="top" data-toggle="tooltip" data-original-title="Delete"><i class="fa fa-times"></i></a>
-                    </div> -->
+    <div class="card-deck-wrapper">
+        <div class="card-deck mb-5">
+            <div *ngFor="let property of properties" class="col-md-6 col-xl-4">
+                <div class="card mt-5 mx-0">
+                    <a class="card-block stretched-link text-decoration-none" href="/view/{{property?.id}}">
+                        <img class="card-img-top center-cropped" src="{{property?.thumbnailLink}}" alt="Card image cap" width="200" height=auto>
+                        <div class="col-10 card-title align-self-center mb-0 mt-2">
+                            <h6 class="text-success">For {{property?.listingType}}</h6>
+                            <h5>{{property?.streetAddress}}</h5>
+                            <p class="m-0">{{property?.city}}, {{property?.state}}</p>
+                        </div>
+                        <hr/>
+                        <div class="col-10 card-text align-self-center mb-4">
+                            <h6>Price : ${{property?.price | number: '2.'}}</h6>
+                            <h6>Bedrooms : {{property?.bedrooms}}</h6>
+                            <h6>Bathrooms : {{property?.bathrooms}}</h6>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-<!--<a href=""><img src="assets/Home.png" alt="" class="img-fluid rounded-circle w-60"></a>-->
-
-
-<!-- <div *ngFor="let propertyImage of propertyImages">
-    <h5>{{propertyImage?.imageLink}}</h5>
-</div> -->
-
-<!-- <section data-ng-controller="myCtrl">
-    <img ng-src="{{s3Url}}{{image.Key}}" width="200px" height="200px" ng-repeat="image in allImageData">
-</section> -->
-<!-- <p>
-    <div *ngFor="let "
-    <img [scr]=f>
-</p> -->

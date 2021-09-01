@@ -13,63 +13,160 @@
         font-size: 3.5rem;
       }
     }
-  </style>
+</style>
 
-<div class="py-5 text-center">
-    <img class="d-block mx-auto mb-4" src="https://t4.ftcdn.net/jpg/02/88/53/69/360_F_288536980_2rduE88nol4G7fP8Lhb57PW3EAPRe8AX.jpg" alt="" width="72" height="72">
-    <h2>Add Property Form</h2>
-    <p class="lead">Enter the information for the property to be newly listed.</p>
-  </div>
+<div class="text-center w-75 p-3 div-max" style="background-color: #eee; margin: auto;">
+  <img class="d-block mx-auto mb-4" src="assets/Home_BlackThick.png" alt="" width="72" height="72">
+  <h2>Add Property Form</h2>
+  <p class="lead">Enter the information for the property to be newly listed.</p>
   <div class="col-md order-md-1">
-    <h4 class="mb-3">Billing address</h4>
-    <form class="needs-validation" novalidate>
+    <h4 class="mb-3">New Property Listing</h4>
+    <form #addForm="ngForm" (ngSubmit)="onAddProperty(addForm)" class="needs-validation" novalidate>
+    
+
+      <h5 class="text-left mt-5">Location Information</h5>
+      <hr/>
+
       <div class="row">
         <div class="col-md-6 mb-3">
-          <label for="firstName">First name</label>
-          <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+          <label for="address">Street Address</label>
+          <input type="text" ngModel name="streetAddress" class="form-control" id="streetAddress" placeholder="1234 Main St" value="" required>
           <div class="invalid-feedback">
-            Valid first name is required.
+            Valid streed address is required.
           </div>
         </div>
         <div class="col-md-6 mb-3">
-          <label for="lastName">Last name</label>
-          <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
+          <label for="streetAddressSecondary">Address 2 <span class="text-muted">(Optional)</span></label>
+          <input type="text" ngModel name="streetAddressSecondary" class="form-control" id="streetAddressSecondary" placeholder="Apartment or suite">
+        </div>
+      </div>
+
+
+
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label for="City">City</label>
+          <input type="text" ngModel name="city" class="form-control" id="city" placeholder="Chicago" value="" required>
           <div class="invalid-feedback">
-            Valid last name is required.
+            Valid city name is required.
+          </div>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="State">State</label>
+          <input type="text" ngModel name="state" class="form-control" id="state" placeholder="IL" value="" required>
+          <div class="invalid-feedback">
+            Valid state abbreviation is required.
           </div>
         </div>
       </div>
 
-      <div class="mb-3">
-        <label for="username">Username</label>
-        <div class="input-group">
-          <div class="input-group-prepend">
-            <span class="input-group-text">@</span>
+      <h5 class="text-left mt-5">Features</h5>
+      <hr/>
+
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label>Bedrooms</label>
+          <input type="text" ngModel name="bedrooms" class="form-control" id="bedrooms" placeholder="0" value="" required>
+          <div class="invalid-feedback">
+            Valid number of bedrooms is required.
           </div>
-          <input type="text" class="form-control" id="username" placeholder="Username" required>
-          <div class="invalid-feedback" style="width: 100%;">
-            Your username is required.
+        </div>
+        <div class="col-md-6 mb-3">
+          <label>Bathrooms</label>
+          <input type="text" ngModel name="bathrooms" class="form-control" id="bathrooms" placeholder="0" value="" required>
+          <div class="invalid-feedback">
+            Valid number of bathrooms is required.
           </div>
         </div>
       </div>
 
-      <div class="mb-3">
-        <label for="email">Email <span class="text-muted">(Optional)</span></label>
-        <input type="email" class="form-control" id="email" placeholder="you@example.com">
-        <div class="invalid-feedback">
-          Please enter a valid email address for shipping updates.
+
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label>Square Footage</label>
+          <input type="text" ngModel name="squareFoot" class="form-control" id="squareFoot" placeholder="123" value="" required>
+          <div class="invalid-feedback">
+            Valid square footage is required.
+          </div>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label>Acreage</label>
+          <input type="text" ngModel name="acreage" class="form-control" id="acreage" placeholder="4.56" value="" required>
+          <div class="invalid-feedback">
+            Valid acreage is required.
+          </div>
         </div>
       </div>
 
-      <div class="mb-3">
-        <label for="address">Address</label>
-        <input type="text" class="form-control" id="address" placeholder="1234 Main St" required>
-        <div class="invalid-feedback">
-          Please enter your shipping address.
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label>Property Type</label>
+          <input type="text" ngModel name="propertyType" class="form-control" id="propertyType" placeholder="Single Family" value="" required>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label>Year Built</label>
+          <input type="text" ngModel name="yearBuilt" class="form-control" id="yearBuilt" placeholder="1923" value="" required>
+          <div class="invalid-feedback">
+            Valid year built is required.
+          </div>
         </div>
       </div>
 
-      <div class="mb-3">
-        <label for="address2">Address 2 <span class="text-muted">(Optional)</span></label>
-        <input type="text" class="form-control" id="address2" placeholder="Apartment or suite">
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label>Garaged Car Spaces</label>
+          <input type="text" ngModel name="garageSpace" class="form-control" id="garageSpace" placeholder="2" value="" required>
+        </div>
       </div>
+
+      <h5 class="text-left mt-5">Listing Information</h5>
+      <hr/>
+
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label>Price (USD)</label>
+          <input type="text" ngModel name="price" class="form-control" id="price" placeholder="100,000" value="" required>
+          <div class="invalid-feedback">
+            Valid price is required.
+          </div>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="listingType">Listing Type</label>
+          <select class="custom-select d-block w-100" id="listingType" ngModel name="listingType" required>
+            <option value="">Choose...</option>
+            <option>Sale</option>
+            <option>Lease</option>
+            <option>Sale or Lease</option>
+          </select>
+          
+          <!-- <input type="text" ngModel name="listingType" class="form-control" id="listingType" placeholder="Sale" value="" required for="inputGroupSelect01"> -->
+          
+          <div class="invalid-feedback">
+            Valid listing type is required.
+          </div>
+        </div>
+      </div>
+
+      <h5 class="text-left mt-5">Photos</h5>
+      <hr/>
+
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label>Image Link</label>
+          <input type="text" ngModel name="thumbnailLink" class="form-control" id="thumbnailLink" placeholder="" value="" required>
+          <div class="invalid-feedback">
+            Valid image link is required.
+          </div>
+        </div>
+      </div>
+
+
+      <button [disabled]="addForm.invalid" type="submit" class="btn btn-primary mt-5 btn-lg">Add Property Listing</button>
+
+    </form>
+  </div>
+</div>
+  
+      
+
+      

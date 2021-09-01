@@ -6,7 +6,7 @@ import { HomeComponent } from './home/home.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 
 const routes: Routes = [
-  { path: 'view', component: ViewComponent},
+  { path: 'view/:id', component: ViewComponent},
   { path: 'add', component: AddComponent},
   { path: '', component: HomeComponent},
   { path: '**', component: PagenotfoundComponent}

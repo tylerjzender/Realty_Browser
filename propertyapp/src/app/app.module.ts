@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import {MatTabsModule} from '@angular/material/tabs';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,6 +11,8 @@ import { ViewComponent } from './view/view.component';
 import { AddComponent } from './add/add.component';
 import { HomeComponent } from './home/home.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    RouterModule, //.forRoot([])
+    RouterModule,
+    NgbModule, //.forRoot([])
+    FormsModule
   ],
   providers: [PropertyService],
   bootstrap: [AppComponent]
