@@ -29,15 +29,6 @@ export class HomeComponent implements OnInit {
    
   }
 
-  
- /*
-  bucketDummy = new S3(
-    {
-      accessKeyId: 'AKIAW6MFAHI3ZT4FQAMW',
-      secretAccessKey: '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',
-      region: 'us-east-2' 
-    }
-  ) */
 
 
   public getProperties(): void {
