@@ -1,6 +1,8 @@
 # Realty_Browser
 This project was intended to clone realty browsers similar to Zillow/Realtor/Compass. This project demonstrates usage of MySQL, SpringBoot, Angular, and Bootstrap. From the home screen, a number of property listings from the database are shown in card format with some of the more critical property information, such as price and bedrooms, as well as showcasing a thumbnail for each property. Cards may be clicked to be redirected to each property's view page. View pages showcase the property in its entirety by listing the full range of information on the property and all the photos provided to the database. Properties may be searched for using the search bar by entering either just the state or both the state and city. Property listings may also be added to the database. A quick-quote page was included to use linear regression techniques for estimating a house price. Lastly, there is a "page not found" page included for when a non-valid web address is used.
 
+![RealtyBrowser](https://user-images.githubusercontent.com/77171947/132251555-42f46659-fedf-43a8-861f-71b65ccbc108.JPG)
+
 # Goal of Project
 The primary goal of this project was to learn about working in a full stack environment, as well as to learn about using SpringBoot and Angular. Additionally, I wanted to demonstrate how such tools could be used to create a realty browser clone. Lastly, I wanted to demonstrate a simple application of linear regression.
 
