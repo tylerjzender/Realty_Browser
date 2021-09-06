@@ -7,6 +7,24 @@ The primary goal of this project was to learn about working in a full stack envi
 # Demonstration Video
 https://www.youtube.com/watch?v=YWY1Ap5JZ0g
 
+# Running the Project
+First, clone the project.
+```
+git clone https://github.com/tylerjzender/Realty_Browser
+```
+Next, import the "Dump20210906" MySQL database dump using the MySQL Workbench.
+Then run the SpringBoot backend application in an instance of your preferred IDE (such as intelliJ or Eclipse) or using the command below after navigating to "...\realtybrowser".
+```
+mvnw spring-boot:run
+```
+Run the frontend Angular application by opening the "propertyapp" folder in an instance of your preferred IDE (such as VSCode) or by navigating to "...\propertyapp" from a terminal and running the command below for a development server.
+```
+ng serve
+```
+Navigate to "http://localhost:4200/" on your preferred web browser.
+
+
+
 # Backend
 The backend is made up of a MySQL server interfaced by a SpringBoot application which was originally generated from Maven. JPA Repository is used to access elements of the database. Two classes of objects are defined: Property objects and PropertyImage objects. Property objects represent a single listing, while PropertyImage objects represent a link to an image referring to a Property object. Two repository interfaces are defined for each class of previously mentioned object class. Two services are defined to utilize each repository interface. Lastly, two Rest controllers are defined to be called upon by the frontend.
 
@@ -27,10 +45,10 @@ The frontend was developed in Angular 9 and utilizes bootstrap. The following co
 * PageNotFound
   * Indicates  that the address navigated to is not valid.
 
-# Project outcomes
+# Project Outcomes
+Overall, this project was a success. I learned a great deal about front end and back end development, Rest controllers, databases, and UI development. There were certainly some things I was left slightly unhappy with, such as the quality of the linear regression model due to the data I was able to get, but even this case I demonstrated a proof of concept for the application.
 
-
-# Future work
+# Future Work
 * Redirect from add page to view page once a property has been added.
 * Improve search functionality ("Advanced Search" - beds, baths, listing type, etc.).
 * Hide "Built Year: 0" if no built year is provided.
