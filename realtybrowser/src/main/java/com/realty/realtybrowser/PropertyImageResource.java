@@ -33,6 +33,13 @@ public class PropertyImageResource {
         return new ResponseEntity<>(propertyImage, HttpStatus.OK);
     }
 
+    @GetMapping("/find/propertyId/{propertyId}")
+    public ResponseEntity<List<PropertyImage>> getPropertyImagesByPropertyId (@PathVariable("propertyId") Long propertyId)
+    {
+        List<PropertyImage> propertyImages = propertyImageService.findPropertyImagesByPropertyId(propertyId);
+        return new ResponseEntity<>(propertyImages, HttpStatus.OK);
+    }
+
     @PostMapping("/add")
     public ResponseEntity<PropertyImage> addPropertyImage(@RequestBody PropertyImage propertyImage)
     {

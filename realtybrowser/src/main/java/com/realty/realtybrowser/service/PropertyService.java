@@ -31,20 +31,35 @@ public class PropertyService {
         return propertyRepo.findAll();
     }
 
-    public Property updateProperty(Property property)
-    {
-        return propertyRepo.save(property);
-    }
-
     public Property findPropertyById(Long id)
     {
         return propertyRepo.findPropertyById(id).orElseThrow(() -> new UserNotFoundException("User by id " + id + " was not found"));
     }
 
+
+    public List<Property> findAllPropertiesByState(String state)
+    {
+        return propertyRepo.findPropertiesByState(state).orElseThrow(() -> new UserNotFoundException("Properties by state " + state + " were not found"));
+    }
+
+    public List<Property> findAllPropertiesByStateAndCity(String state, String city)
+    {
+        return propertyRepo.findPropertiesByStateAndCity(state, city).orElseThrow(() -> new UserNotFoundException("Properties by state " + state + " and city " + city + " were not found"));
+    }
+
+
+    public Property updateProperty(Property property)
+    {
+        return propertyRepo.save(property);
+    }
+
+
+
     public void deleteProperty(Long id)
     {
         propertyRepo.deletePropertyById(id);
     }
+
 
 
 }

@@ -15,43 +15,48 @@
     }
 </style>
 
+<!-- https://getbootstrap.com/docs/4.5/examples/checkout/ -->
+
+
 <div class="text-center w-75 p-3 div-max" style="background-color: #eee; margin: auto;">
-  <img class="d-block mx-auto mb-4" src="assets/Home_BlackThick.png" alt="" width="72" height="72">
-  <h2>Add Property Form</h2>
+  <img class="d-block mx-auto mb-1" src="assets/Home_BlackThick.png" alt="" width="72" height="72">
+  <h2>Add Listing Form</h2>
   <p class="lead">Enter the information for the property to be newly listed.</p>
-  <div class="col-md order-md-1">
-    <h4 class="mb-3">New Property Listing</h4>
-    <form #addForm="ngForm" (ngSubmit)="onAddProperty(addForm)" class="needs-validation" novalidate>
+  
+  <h4 class="mt-5">New Property Listing</h4>
+  <div class="d-flex justify-content-center">
+    
+    <form #addForm="ngForm" (ngSubmit)="onAddProperty(addForm)" class="needs-validation" novalidate> 
     
 
-      <h5 class="text-left mt-5">Location Information</h5>
+      <h5 class="text-center mt-4">Location</h5>
       <hr/>
 
-      <div class="row">
-        <div class="col-md-6 mb-3">
+      <div class="row text-left">
+        <div class="ml-3 mb-3 ">
           <label for="address">Street Address</label>
           <input type="text" ngModel name="streetAddress" class="form-control" id="streetAddress" placeholder="1234 Main St" value="" required>
           <div class="invalid-feedback">
             Valid streed address is required.
           </div>
         </div>
-        <div class="col-md-6 mb-3">
-          <label for="streetAddressSecondary">Address 2 <span class="text-muted">(Optional)</span></label>
-          <input type="text" ngModel name="streetAddressSecondary" class="form-control" id="streetAddressSecondary" placeholder="Apartment or suite">
+        <div class="ml-3 mb-3 ">
+          <label for="secondAddress">Address 2 <span class="text-muted">(Optional)</span></label>
+          <input type="text" ngModel name="secondAddress" class="form-control" id="secondAddress" placeholder="Apartment or suite">
         </div>
       </div>
 
 
 
-      <div class="row">
-        <div class="col-md-6 mb-3">
+      <div class="row text-left">
+        <div class="col-xs-3 ml-3 mb-3">
           <label for="City">City</label>
           <input type="text" ngModel name="city" class="form-control" id="city" placeholder="Chicago" value="" required>
           <div class="invalid-feedback">
             Valid city name is required.
           </div>
         </div>
-        <div class="col-md-6 mb-3">
+        <div class="col-xs-1 ml-3 mb-3">
           <label for="State">State</label>
           <input type="text" ngModel name="state" class="form-control" id="state" placeholder="IL" value="" required>
           <div class="invalid-feedback">
@@ -60,18 +65,18 @@
         </div>
       </div>
 
-      <h5 class="text-left mt-5">Features</h5>
+      <h5 class="text-center mt-5">Features</h5>
       <hr/>
 
-      <div class="row">
-        <div class="col-md-6 mb-3">
+      <div class="row text-left">
+        <div class="col-xs-1 ml-3 mb-3">
           <label>Bedrooms</label>
           <input type="text" ngModel name="bedrooms" class="form-control" id="bedrooms" placeholder="0" value="" required>
           <div class="invalid-feedback">
             Valid number of bedrooms is required.
           </div>
         </div>
-        <div class="col-md-6 mb-3">
+        <div class="col-xs-1 ml-5 mb-3">
           <label>Bathrooms</label>
           <input type="text" ngModel name="bathrooms" class="form-control" id="bathrooms" placeholder="0" value="" required>
           <div class="invalid-feedback">
@@ -81,16 +86,16 @@
       </div>
 
 
-      <div class="row">
-        <div class="col-md-6 mb-3">
+      <div class="row text-left">
+        <div class="col-xs-3 ml-3 mb-3">
           <label>Square Footage</label>
           <input type="text" ngModel name="squareFoot" class="form-control" id="squareFoot" placeholder="123" value="" required>
           <div class="invalid-feedback">
             Valid square footage is required.
           </div>
         </div>
-        <div class="col-md-6 mb-3">
-          <label>Acreage</label>
+        <div class="col-xs-3 ml-3 mb-3">
+          <label>Acreage of Lot</label>
           <input type="text" ngModel name="acreage" class="form-control" id="acreage" placeholder="4.56" value="" required>
           <div class="invalid-feedback">
             Valid acreage is required.
@@ -98,34 +103,40 @@
         </div>
       </div>
 
-      <div class="row">
-        <div class="col-md-6 mb-3">
-          <label>Property Type</label>
-          <input type="text" ngModel name="propertyType" class="form-control" id="propertyType" placeholder="Single Family" value="" required>
+      <div class="row text-left">
+        <div class="col-xs-3 ml-3 mb-3">
+          <label for="propertyType">Property Type</label>
+          <select class="custom-select d-block w-100" id="propertyType" ngModel name="propertyType" required>
+            <option value="">Choose...</option>
+            <option>Single Family</option>
+            <option>Multi Family</option>
+            <option>Mobile</option>
+            <option>Land</option>
+          </select>
         </div>
-        <div class="col-md-6 mb-3">
+        <div class="col-xs-2 ml-3 mb-3">
           <label>Year Built</label>
-          <input type="text" ngModel name="yearBuilt" class="form-control" id="yearBuilt" placeholder="1923" value="" required>
+          <input type="text" ngModel name="yearBuilt" class="form-control" id="yearBuilt" placeholder="1923" value="">
           <div class="invalid-feedback">
             Valid year built is required.
           </div>
         </div>
       </div>
 
-      <div class="row">
-        <div class="col-md-6 mb-3">
+      <div class="row text-left">
+        <div class="col-xs-2 ml-3 mb-3 text-nowrap">
           <label>Garaged Car Spaces</label>
           <input type="text" ngModel name="garageSpace" class="form-control" id="garageSpace" placeholder="2" value="" required>
         </div>
       </div>
 
-      <h5 class="text-left mt-5">Listing Information</h5>
+      <h5 class="text-center mt-5">Listing Pricing and Type</h5>
       <hr/>
 
-      <div class="row">
+      <div class="row text-left">
         <div class="col-md-6 mb-3">
           <label>Price (USD)</label>
-          <input type="text" ngModel name="price" class="form-control" id="price" placeholder="100,000" value="" required>
+          <input type="text" ngModel name="price" class="form-control" id="price" placeholder="100000" value="" required>
           <div class="invalid-feedback">
             Valid price is required.
           </div>
@@ -147,12 +158,12 @@
         </div>
       </div>
 
-      <h5 class="text-left mt-5">Photos</h5>
+      <h5 class="text-center mt-5">Photos</h5>
       <hr/>
 
-      <div class="row">
+      <div class="row text-left">
         <div class="col-md-6 mb-3">
-          <label>Image Link</label>
+          <label>Thumbnail Link</label>
           <input type="text" ngModel name="thumbnailLink" class="form-control" id="thumbnailLink" placeholder="" value="" required>
           <div class="invalid-feedback">
             Valid image link is required.
@@ -160,10 +171,38 @@
         </div>
       </div>
 
+    
+      <form>
+        <div class="row text-left">
+          <div class="col-md-6 mb-3">
+            <label>Additional Image Link</label>
+            <input type="text" (ngModelChange)="logImage1(key.value)" #key="ngModel" ngModel name="image1" id="searchTerm" class="form-control mr-sm-2" name="key">
+          </div>
+        </div>
+  
+        <div class="row text-left">
+          <div class="col-md-6 mb-3">
+            <label>Additional Image Link</label>
+            <input type="text" (ngModelChange)="logImage2(key.value)" #key="ngModel" ngModel name="image1" id="searchTerm" class="form-control mr-sm-2" name="key">
+          </div>
+        </div>
+  
+        <div class="row text-left">
+          <div class="col-md-6 mb-3">
+            <label>Additional Image Link</label>
+            <input type="text" (ngModelChange)="logImage3(key.value)" #key="ngModel" ngModel name="image1" id="searchTerm" class="form-control mr-sm-2" name="key">
+          </div>
+        </div>
+      </form>
+
+      
+
 
       <button [disabled]="addForm.invalid" type="submit" class="btn btn-primary mt-5 btn-lg">Add Property Listing</button>
 
     </form>
+
+     
   </div>
 </div>
   

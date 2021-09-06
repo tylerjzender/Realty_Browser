@@ -3,7 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Property } from './property';
 import { environment } from 'src/environments/environment';
-import { id } from 'aws-sdk/clients/datapipeline';
 
 @Injectable({providedIn: 'root'})
 export class PropertyService {
@@ -15,8 +14,17 @@ export class PropertyService {
     return this.http.get<Property[]>(`${this.apiServerUrl}/property/all`);
   }
 
-  public findProperty(propertyId: number): Observable<Property> {
-    return this.http.get<Property>(`${this.apiServerUrl}/property/find/${propertyId}`);
+  public findPropertyById(propertyId: number): Observable<Property> {
+    return this.http.get<Property>(`${this.apiServerUrl}/property/find/id/${propertyId}`);
+  }
+
+  
+  public findPropertiesByState(propertyState: String): Observable<Property[]> {
+    return this.http.get<Property[]>(`${this.apiServerUrl}/property/find/state/${propertyState}`);
+  }
+
+  public findPropertiesByStateAndCity(propertyState: String, propertyCity: String): Observable<Property[]> {
+    return this.http.get<Property[]>(`${this.apiServerUrl}/property/find/state/${propertyState}/city/${propertyCity}`);
   }
 
   public addProperty(property: Property): Observable<Property> {

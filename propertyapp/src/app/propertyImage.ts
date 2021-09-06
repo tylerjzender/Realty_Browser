@@ -1,6 +1,6 @@
 export interface PropertyImage{
-    id: number;
+    id?: number;
     propertyId: number;
     imageLink: string;
-    propertyCode: string;
+    propertyCode?: string;
 }

@@ -1,0 +1,92 @@
+<style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+</style>
+
+<!-- https://getbootstrap.com/docs/4.5/examples/checkout/ -->
+
+<div class="text-center w-75 p-3 div-max" style="background-color: #eee; margin: auto;">
+  <img class="d-block mx-auto mb-1" src="assets/Home_BlackThick.png" alt="" width="72" height="72">
+  <h2>Get Quick Quote</h2>
+  <p class="lead">Enter the information for the property to be quick-quoted.</p>
+
+  <h4 class="mb-1 mt-5">Property Information</h4>
+  <div class="d-flex justify-content-center">
+    
+    <form #addForm="ngForm" (ngSubmit)="quickQuote()" class="needs-validation" novalidate>
+    
+
+      <h5 class="ext-center mt-4">Features</h5>
+      <hr/>
+
+      <div class="row text-left">
+        <div class="col-xs-1 ml-3 mb-3">
+          <label>Bedrooms</label>
+          <input type="text" [(ngModel)]="quoteProperty.bedrooms" name="bedrooms" class="form-control" id="bedrooms" placeholder="0" value="" #bedroomsControl="ngModel" required>
+          <div class="invalid-feedback">
+            Valid number of bedrooms is required.
+          </div>
+        </div>
+        <div class="col-xs-1 ml-5 mb-3">
+          <label>Bathrooms</label>
+          <input type="text" [(ngModel)]="quoteProperty.bathrooms" name="bathrooms" class="form-control" id="bathrooms" placeholder="0" value="" #bathroomsControl="ngModel" required>
+          <div class="invalid-feedback">
+            Valid number of bathrooms is requiredt.
+          </div>
+        </div>
+      </div>
+
+
+      <div class="row text-left">
+        <div class="col-xs-3 ml-3 mb-3">
+          <label>Square Footage</label>
+          <input type="text" [(ngModel)]="quoteProperty.squareFoot" name="squareFoot" class="form-control" id="squareFoot" placeholder="123" value="" #squareFootControl="ngModel" required>
+          <div class="invalid-feedback">
+            Valid square footage is required.
+          </div>
+        </div>
+        <div class="col-xs-3 ml-3 mb-3">
+          <label>Acreage</label>
+          <input type="text" [(ngModel)]="quoteProperty.acreage" name="acreage" class="form-control" id="acreage" placeholder="4.56" value="" #acreageControl="ngModel" required>
+          <div class="invalid-feedback">
+            Valid acreage is required.
+          </div>
+        </div>
+      </div>
+
+      <div class="row text-left">
+        <div class="col-xs-2 ml-3 mb-3">
+          <label>Year Built</label>
+          <input type="text" [(ngModel)]="quoteProperty.yearBuilt" name="yearBuilt" class="form-control" id="yearBuilt" placeholder="1923" value="" #yearBuiltControl="ngModel" required>
+          <div class="invalid-feedback">
+            Valid year built is required.
+          </div>
+        </div>
+      </div>
+
+      <button  type="submit" class="btn btn-primary mt-5 btn-lg" (click)="quickQuote()">Get Quick-Quoted</button>
+      <!-- [disabled]="addForm.invalid" -->
+
+      
+      <div class="mb-3">
+        <h3 class="mt-4">{{quotedPriceString}}</h3>
+      </div>
+    </form>
+  </div>
+</div>
+  
+      
+
+      

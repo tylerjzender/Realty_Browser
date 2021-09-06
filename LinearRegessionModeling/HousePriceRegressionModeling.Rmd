@@ -1,0 +1,27 @@
+---
+title: "HousingPriceRegressionModeling"
+author: "Tyler Zender"
+date: "9/1/2021"
+output: html_document
+---
+
+Data originally obtained from https://www.kaggle.com/dumburanjith/house-sales-prediction-and-classification.
+
+```{r}
+library(faraway)
+```
+
+```{r}
+housePriceData = read.csv("kc_house_data.csv")
+housePriceData$acreage = housePriceData$sqft_lot/43560
+simplemodel = lm(price~bedrooms+bathrooms+sqft_living+acreage+yr_built, data = housePriceData)
+summary(simplemodel)
+vif(simplemodel)
+```
+
+```{r}
+model_int = lm(price ~(bedrooms+bathrooms+sqft_living+acreage+yr_built)^2, data = housePriceData)
+summary(model_int)
+int_aic = step(model_int, direction = "backward")
+summary(int_aic)
+```

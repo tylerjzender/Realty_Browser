@@ -4,6 +4,7 @@ import { PropertyService } from './property.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { NgForm } from '@angular/forms';
 import * as AWS from 'aws-sdk';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -13,8 +14,32 @@ import * as AWS from 'aws-sdk';
 export class AppComponent implements OnInit {
   public properties: Property[];
   title: any;
+  public searchTerm: String;
+  public searchState: String;
+  public searchCity: String;
+  
+  onSearchSubmitted(key: string){
+    console.log("Key: " + key);
+    this.searchThis(key);
 
-  constructor(private propertyService: PropertyService){}
+    //this.searchThis(key);
+    if (this.searchCity != null)
+    {
+      this.router.navigate(['/search/state/' + this.searchState + '/city/' + this.searchCity]);
+      this.searchTerm = null;
+      this.searchState = null;
+      this.searchCity = null;
+    }
+    else
+    {
+      this.router.navigate(['/search/state/' + this.searchState]);
+      this.searchTerm = null;
+      this.searchState = null;
+      this.searchCity = null;
+    }
+  }
+
+  constructor(private propertyService: PropertyService, private router: Router, private route: ActivatedRoute){}
 
   ngOnInit() {
     //this.getProperties();
@@ -55,16 +80,34 @@ export class AppComponent implements OnInit {
     });  */
   }
 
-  /*
-  public getProperties(): void {
-    this.propertyService.getProperties().subscribe(
-      (response: Property[]) => {
-        this.properties = response;
-        console.log(this.properties);
-      },
-      (error: HttpErrorResponse) => {
-        alert(error.message);
+  public searchThis(key: string): void {
+    console.log("Key (searchThis): " + key);
+    this.searchTerm = key;
+    var substrings: String[];
+
+    
+    if (this.searchTerm.includes(",")) { 
+      substrings = this.searchTerm.split(",");
+    } else if (this.searchTerm.includes(" ")) { 
+      substrings = this.searchTerm.split(" ");
+    } 
+    else 
+    {
+      this.searchState = key;
+      return;
+    }
+
+    for (let ctr = 0; ctr < substrings.length; ctr++) {
+      substrings[ctr] = substrings[ctr].trim();
+      if (substrings[ctr].length == 2)
+      {
+        this.searchState = substrings[ctr];
       }
-    );
-  } */
+      else
+      {
+        this.searchCity = substrings[ctr];
+      }
+    }    
+  } 
+  
 }

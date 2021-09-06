@@ -40,6 +40,11 @@ public class PropertyImageService {
         return propertyImageRepo.findPropertyImageById(id).orElseThrow(() -> new UserNotFoundException("User by id " + id + " was not found"));
     }
 
+    public List<PropertyImage> findPropertyImagesByPropertyId(Long propertyId)
+    {
+        return propertyImageRepo.findPropertyImagesByPropertyId(propertyId).orElseThrow(() -> new UserNotFoundException("User by id " + propertyId + " was not found"));
+    }
+
     public  void deletePropertyImage(Long id)
     {
         propertyImageRepo.deletePropertyImageById(id);

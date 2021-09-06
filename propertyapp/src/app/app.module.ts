@@ -10,9 +10,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { ViewComponent } from './view/view.component';
 import { AddComponent } from './add/add.component';
 import { HomeComponent } from './home/home.component';
+import { QuoteComponent } from './quote/quote.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
+import { SearchComponent } from './search/search.component';
+
 
 @NgModule({
   declarations: [
@@ -20,7 +23,9 @@ import { FormsModule } from '@angular/forms';
     ViewComponent,
     AddComponent,
     HomeComponent,
-    PagenotfoundComponent
+    QuoteComponent,
+    PagenotfoundComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,

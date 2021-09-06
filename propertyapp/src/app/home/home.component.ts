@@ -6,6 +6,8 @@ import { PropertyImage } from '../propertyImage';
 import { PropertyImageService } from '../property-image.service';
 import { S3 } from 'aws-sdk';
 import * as AWS from 'aws-sdk';
+import { Title } from '@angular/platform-browser';
+import { variableName } from 'aws-sdk/clients/frauddetector';
 
 
 @Component({
@@ -15,16 +17,15 @@ import * as AWS from 'aws-sdk';
 })
 export class HomeComponent implements OnInit {
   public properties: Property[];
+  public allProperties: Property[];
   public propertyImages: PropertyImage[];
-  //public imgStringLink: String;
 
-  constructor(private propertyService: PropertyService, private propertyImageService: PropertyImageService){}
+  constructor(private propertyService: PropertyService, private propertyImageService: PropertyImageService, private titleService: Title){}
 
   
   ngOnInit() {
     this.getProperties();
-    this.getPropertyImages();
-
+    this.titleService.setTitle("Property Browser");
    
   }
 
@@ -38,21 +39,22 @@ export class HomeComponent implements OnInit {
     }
   ) */
 
-  //getImgStringLink() {
-    //const params = { Bucket: 'realtyappbucket', Key: this.user}
-  //}
 
   public getProperties(): void {
     this.propertyService.getProperties().subscribe(
       (response: Property[]) => {
-        this.properties = response;
-        console.log(this.properties);
+        this.allProperties = response;
+        
+        let random = this.allProperties.sort(() => .5 - Math.random()).slice(0,6);
+        this.properties = random;
+        console.log(this.allProperties);
       },
       (error: HttpErrorResponse) => {
         alert(error.message);
       }
     );
   }
+
 
   public getPropertyImages(): void {
     this.propertyImageService.getPropertyImages().subscribe(
@@ -65,8 +67,7 @@ export class HomeComponent implements OnInit {
       }
     );
   }
-
+    
 
   
-
 }

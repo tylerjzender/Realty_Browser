@@ -14,15 +14,26 @@ export class PropertyImageService {
     return this.http.get<PropertyImage[]>(`${this.apiServerUrl}/propertyImage/all`);
   }
 
-  public addProperty(propertyImage: PropertyImage): Observable<PropertyImage> {
+  public findPropertyImagesById(propertyId: number): Observable<PropertyImage[]> {
+    return this.http.get<PropertyImage[]>(`${this.apiServerUrl}/propertyImage/find/${propertyId}`);
+  }
+
+  public findPropertyImagesByPropertyId(propertyId: number): Observable<PropertyImage[]> {
+    return this.http.get<PropertyImage[]>(`${this.apiServerUrl}/propertyImage/find/propertyId/${propertyId}`);
+  }
+
+  public addPropertyImage(propertyImage: PropertyImage): Observable<PropertyImage> {
     return this.http.post<PropertyImage>(`${this.apiServerUrl}/propertyImage/add`, propertyImage);
   }
 
-  public updateProperty(propertyImage: PropertyImage): Observable<PropertyImage> {
+  public updatePropertyImage(propertyImage: PropertyImage): Observable<PropertyImage> {
     return this.http.put<PropertyImage>(`${this.apiServerUrl}/propertyImage/update`, propertyImage);
   }
 
-  public deleteProperty(propertyImageId: number): Observable<void> {
+  public deletePropertyImage(propertyImageId: number): Observable<void> {
     return this.http.delete<void>(`${this.apiServerUrl}/propertyImage/delete/${propertyImageId}`);
   }
+
+  
+  
 }

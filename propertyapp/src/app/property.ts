@@ -1,6 +1,7 @@
 export interface Property{
     id: number;
     streetAddress: string;
+    secondAddress?: string;
     city: string;
     state: string;
     listingType: string;
@@ -11,7 +12,7 @@ export interface Property{
     squareFoot: number;
     acreage: number;
     propertyType: String;
-    yearBuilt: number
+    yearBuilt?: number
     garageSpace: number;
     propertyCode: string;
 }

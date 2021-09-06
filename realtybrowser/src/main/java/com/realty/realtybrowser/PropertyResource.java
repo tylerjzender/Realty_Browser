@@ -25,11 +25,26 @@ public class PropertyResource {
         return new ResponseEntity<>(properties, HttpStatus.OK);
     }
 
-    @GetMapping("/find/{id}")
+    @GetMapping("/find/id/{id}")
     public ResponseEntity<Property> getPropertyById (@PathVariable("id") Long id)
     {
         Property property = propertyService.findPropertyById(id);
         return new ResponseEntity<>(property, HttpStatus.OK);
+    }
+
+
+    @GetMapping("/find/state/{state}")
+    public ResponseEntity<List<Property>> getPropertiesByState (@PathVariable("state") String state)
+    {
+        List<Property> properties = propertyService.findAllPropertiesByState(state);
+        return new ResponseEntity<>(properties, HttpStatus.OK);
+    }
+
+    @GetMapping("/find/state/{state}/city/{city}")
+    public ResponseEntity<List<Property>> getPropertiesByStateAndCity (@PathVariable("state") String state, @PathVariable("city") String city)
+    {
+        List<Property> properties = propertyService.findAllPropertiesByStateAndCity(state, city);
+        return new ResponseEntity<>(properties, HttpStatus.OK);
     }
 
     @PostMapping("/add")

@@ -10,8 +10,6 @@ public  class PropertyImage implements Serializable {
     @Column(nullable = false, updatable = false)
     private Long id;
     private Long propertyId;
-    //@Lob
-    //@Column(name = "content", columnDefinition="LONGBLOB")
     private String imageLink;
     private String propertyImageCode;
 

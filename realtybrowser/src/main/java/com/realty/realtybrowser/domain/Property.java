@@ -12,6 +12,7 @@ public class Property implements Serializable {
     @Column(nullable = false, updatable = false)
     private Long id;
     private String streetAddress;
+    private String secondAddress;
     private String city;
     private String state;
     private String listingType;
@@ -30,11 +31,12 @@ public class Property implements Serializable {
     {
     }
 
-    public Property(String streetAddress, String city, String state, String listingType, int price, int bedrooms, float bathrooms,
+    public Property(String streetAddress, String secondAddress, String city, String state, String listingType, int price, int bedrooms, float bathrooms,
                     String thumbnailLink, float squareFoot, float acreage, String propertyType, int yearBuilt,
                     int garageSpace, String propertyCode)
     {
         this.streetAddress = streetAddress;
+        this.secondAddress = secondAddress;
         this.city = city;
         this.state = state;
         this.listingType = listingType;
@@ -192,6 +194,7 @@ public class Property implements Serializable {
         return  "Property{" +
                 "id=" + id +
                 ", streetAddress=" + streetAddress + '\'' +
+                ", secondAddress=" + secondAddress + '\'' +
                 ", city=" + city + '\'' +
                 ", state=" + state + '\'' +
                 ", listingType=" + listingType + '\'' +
@@ -206,5 +209,13 @@ public class Property implements Serializable {
                 ", garageSpace=" + garageSpace + '\'' +
                 ", propertyCode=" + propertyCode + '\'' +
                 "}";
+    }
+
+    public String getSecondAddress() {
+        return secondAddress;
+    }
+
+    public void setSecondAddress(String secondAddress) {
+        this.secondAddress = secondAddress;
     }
 }

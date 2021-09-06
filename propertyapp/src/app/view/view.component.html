@@ -1,27 +1,32 @@
 <div class="text-center w-75 p-3 div-max" style="background-color: #eee; margin: auto;">
     
-    <img src="{{viewedProperty.thumbnailLink}}"class="img-max" alt="Responsive image" style="width: 100%">
-    <div class="w-75 p-3 text-left">
+    <img src="{{viewedProperty?.thumbnailLink}}"class="img-max" alt="Responsive image" style="width: 100%">
+    <div class="w-75 p-3 text-left mb-0">
         <div class = "mb-5">
-            <h6 class="text-success">For {{viewedProperty.listingType}}</h6>
-            <h1>${{viewedProperty.price | number: '2.'}}</h1>
-            <h4>{{viewedProperty.streetAddress}}</h4>
-            <h4>{{viewedProperty.city}}, {{viewedProperty.state}}</h4>
+            <h6 class="{{viewedProperty?.listingType}}">For {{viewedProperty?.listingType}}</h6>
+            <h1>${{viewedProperty?.price | number: '2.'}}</h1>
+            <h4>{{viewedProperty?.streetAddress}}</h4>
+            <h4>{{viewedProperty?.secondAddress}}</h4>
+            <h4>{{viewedProperty?.city}}, {{viewedProperty?.state}}</h4>
         </div>
         <div class = "mb-5">
             <h2>Information</h2>
             <hr/>
-            <h6>{{viewedProperty.bedrooms}} Bedrooms</h6>
-            <h6>{{viewedProperty.bathrooms}} Bathrooms</h6>
-            <h6>{{viewedProperty.squareFoot}} SqFt</h6>
-            <h6>{{viewedProperty.acreage}} Acres</h6>
-            <h6>Built {{viewedProperty.yearBuilt}}</h6>
-            <h6>{{viewedProperty.garageSpace}} Garaged Car Spaces</h6>
+            <h6>{{viewedProperty?.propertyType}}</h6>
+            <h6>{{viewedProperty?.bedrooms}} Bedrooms</h6>
+            <h6>{{viewedProperty?.bathrooms}} Bathrooms</h6>
+            <h6>{{viewedProperty?.squareFoot}} SqFt</h6>
+            <h6>{{viewedProperty?.acreage}} Acre Lot</h6>
+            <h6>Built {{viewedProperty?.yearBuilt}}</h6>
+            <h6>{{viewedProperty?.garageSpace}} Garaged Car Spaces</h6>
         </div>
-        <div class = "mb-5">
+        <div>
             <h2>Pictures</h2>
             <hr/>
         </div>
+    </div>
+    <div *ngFor="let propertyImage of viewedPropertyImages">
+        <img src="{{propertyImage?.imageLink}}"class="img-max mb-5" alt="Responsive image" style="width: 100%">
     </div>
 </div>
 

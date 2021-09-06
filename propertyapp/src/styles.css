@@ -36,6 +36,10 @@ a {
   width: 60px;
 }
 
+.w-80 {
+  width: 80%;
+}
+
 h1,
 h2,
 h3,
@@ -91,3 +95,23 @@ hr {
   border: 0;
   border-top: 2px solid rgba(0, 0, 0, 0.1);
 }
+
+.col-xs-1 {
+  width: 60px;
+}
+
+.col-xs-2 {
+  width: 100px;
+}
+
+.div-max-2 {
+  max-width: 200px;
+  width:100%;
+}
+
+.text-nowrap {
+  white-space: nowrap;
+}
+
+.Sale{color: rgb(26, 165, 21);}
+.Lease{color: rgb(233, 149, 54);}
